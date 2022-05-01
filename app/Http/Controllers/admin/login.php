@@ -11,7 +11,7 @@ class login extends Controller
 
     public function login(Request $request){
 
-        if(Auth::attempt([$request->email,$request->password])){
+        if(Auth::attempt(["email"=>$request->email,"password"=>$request->password])){
 
             return redirect()->route("admin.dashboard");
         }

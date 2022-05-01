@@ -15,7 +15,7 @@ class deleteTest extends TestCase
     public function test_example()
     {
 
-        $nationality1=modelnationality::factory()->create();
+        $nationality1=modelnationality::create(["name"=>"sd"]);
         $nationality=new nationality();
         $nationality=$nationality->delete($nationality1->id);
         $this->assertTrue($nationality);

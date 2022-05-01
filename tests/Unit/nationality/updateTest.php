@@ -14,7 +14,11 @@ class updateTest extends TestCase
      */
     public function test_example()
     {
-        $nationality1=modelsnationality::factory()->create();
+        $nationality1=modelsnationality::create([
+
+            "name"=>"dd"
+
+        ]);
         $nationality=new nationality();
         $nationality=$nationality->update($nationality1->id,"syria");
         $this->assertInstanceOf(modelsnationality::class,$nationality);

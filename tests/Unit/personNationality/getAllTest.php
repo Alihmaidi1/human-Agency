@@ -2,8 +2,6 @@
 
 namespace Tests\Unit\personNationality;
 
-use App\repo\classes\nationality;
-use App\repo\classes\person;
 use tests\TestCase;
 use App\repo\classes\personNationality;
 class getAllTest extends TestCase

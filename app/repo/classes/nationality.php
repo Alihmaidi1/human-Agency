@@ -2,9 +2,8 @@
 
 namespace App\repo\classes;
 use App\Models\nationality as modelnationality;
-use App\repo\interfaces\nationality as InterfacesNationality;
 
-class nationality implements InterfacesNationality{
+class nationality{
 
 
 

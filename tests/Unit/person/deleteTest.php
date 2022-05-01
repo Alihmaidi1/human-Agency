@@ -16,7 +16,13 @@ class delete extends TestCase
     {
 
 
-        $person1=modelperson::factory()->create();
+        $person1=modelperson::create([
+
+            "name"=>"ss",
+            "age"=>33,
+            "address"=>"ad"
+
+        ]);
         $person=new person();
         $bool=$person->delete($person1->id);
         $this->assertTrue($bool);

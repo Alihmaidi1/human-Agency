@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\login;
+use App\Http\Controllers\office;
 use App\Http\Controllers\dashboard\dashboard;
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,11 @@ Route::post("/admin.login",[login::class,"login"])->name("admin.login");
         Route::get("/admin.dashboard",[dashboard::class,"index"])->name("admin.dashboard");
 
 
+        Route::get("office.create",[office::class,"create"])->name("office.create");
+        Route::post("office.store",[office::class,"store"])->name("office.store");
+        Route::get("office.index",[office::class,"index"])->name("office.index");
+        Route::get("office.delete/{id}",[office::class,"delete"])->name("office.delete");
+        Route::get("office.edit/{id}",[office::class,"edit"])->name("office.edit");
+        Route::post("office.update",[office::class,"update"])->name("office.update");
     });
 

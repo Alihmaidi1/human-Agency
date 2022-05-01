@@ -1,9 +1,8 @@
 <?php
 namespace App\repo\classes;
 use App\Models\person as personModel;
-use App\repo\interfaces\person as InterfacesPerson;
 
-class person implements InterfacesPerson
+class person
 {
 
     public function getAllPerson(){
