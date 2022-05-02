@@ -77,19 +77,24 @@ return [
 
                 "office"=>\App\Graphql\query\office\office::class,
                 "offices"=>\App\Graphql\query\office\getAllOffice::class,
+                "findemployee"=>\App\Graphql\query\employee\findemployee::class,
+                "getAllEmpoyee"=>\App\Graphql\query\employee\getAllEmployee::class,
             ],
             'mutation' => [
 
                 "addoffice"=>\App\Graphql\query\office\addoffice::class,
                 "editoffice"=>\App\Graphql\query\office\editoffice::class,
                 "deleteoffice"=>\App\Graphql\query\office\deleteoffice::class,
-
+                "addemployee"=>\App\Graphql\query\employee\addEmployee::class,
+                "editemployee"=>\App\Graphql\query\employee\editemployee::class,
+                "deleteemployee"=>\App\Graphql\query\employee\deleteEmployee::class,
 
             ],
             // The types only available in this schema
             'types' => [
 
                 \App\Graphql\type\office::class,
+                \App\Graphql\type\employee::class,
 
             ],
 
