@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\login;
 use App\Http\Controllers\office;
 use App\Http\Controllers\dashboard\dashboard;
+use App\Http\Controllers\employee;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,5 +30,14 @@ Route::post("/admin.login",[login::class,"login"])->name("admin.login");
         Route::get("office.delete/{id}",[office::class,"delete"])->name("office.delete");
         Route::get("office.edit/{id}",[office::class,"edit"])->name("office.edit");
         Route::post("office.update",[office::class,"update"])->name("office.update");
+
+
+        Route::get("employee.index",[employee::class,"index"])->name("employee.index");
+        Route::get("employee.create",[employee::class,"create"])->name("employee.create");
+        Route::post("employee.store",[employee::class,"store"])->name("employee.store");
+        Route::get("employee.edit/{id}",[employee::class,"edit"])->name("employee.edit");
+        Route::post("employee.update",[employee::class,"update"])->name("employee.update");
+        Route::get("employee.delete/{id}",[employee::class,"delete"])->name("employee.delete");
+
     });
 

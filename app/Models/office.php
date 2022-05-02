@@ -11,4 +11,11 @@ class office extends Model
 
     public $fillable=["name","address"];
 
+
+    public function employees(){
+
+        return $this->hasMany("App\Models\\employee","office_id");
+
+    }
+
 }

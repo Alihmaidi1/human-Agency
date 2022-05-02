@@ -57,26 +57,36 @@
                   <div class="x_content">
 
                     <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>
-                    <a href="{{ route("office.create") }}" class="btn btn-primary m-2 text-white">add Office</a>
+                    <a href="{{ route("employee.create") }}" class="btn btn-primary m-2 text-white">add Office</a>
                     <div class="table-responsive">
                       <table style="vertical-align: middle" class="table text-center table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">
                             <th class="column-title">Name </th>
                             <th class="column-title">Address </th>
+                            <th class="column-title">age </th>
+                            <th class="column-title">salary </th>
+                            <th class="column-title">office </th>
+                            <th class="column-title">manager </th>
+
                             <th class="column-title">Operation </th>
                           </tr>
                         </thead>
                         <tbody style="vertical-align: middle">
 
-                            @foreach($offices as  $office)
+                            @foreach($employees as  $employee)
                             <tr>
-                                <td>{{ $office['name'] }}</td>
-                                <td>{{ $office['address'] }}</td>
+                                <td>{{ $employee['name'] }}</td>
+                                <td>{{ $employee['address'] }}</td>
+                                <td>{{ $employee['age'] }}</td>
+                                <td>{{ $employee['salary'] }}</td>
+                                <td></td>
+                                <td></td>
+
                                 <td>
 
-                                    <a  href="{{ route("office.edit",$office['id']) }}" class="btn-sm btn-success">Edit</a>
-                                    <a href="{{ route("office.delete",$office['id']) }}"  class=" btn-sm btn-danger">Delete</a>
+                                    <a  href="{{ route("employee.edit",$employee['id']) }}" class="btn-sm btn-success">Edit</a>
+                                    <a href="{{ route("employee.delete",$employee['id']) }}"  class=" btn-sm btn-danger">Delete</a>
 
 
                                 </td>
