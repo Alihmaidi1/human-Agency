@@ -54,11 +54,11 @@ class employee{
         try{
 
             ModelsEmployee::find($id)->delete();
-            return redirect()->back();
+            return true;
 
         }catch(\Exception $ex){
 
-            return redirect()->back()->withErrors(["error"=>"we have Error"]);
+            return false;
         }
         }
 
