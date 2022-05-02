@@ -17,7 +17,17 @@ class updateTest extends TestCase
     {
         $employee=new employee();
         $request=new Request();
-        $request->id=1;
+        $employee2=ModelsEmployee::create([
+
+            "name"=>"zdds",
+            "address"=>"dsdsd",
+            "age"=>2,
+            "salary"=>34,
+            "manager_id"=>null,
+            "office_id"=>2
+
+        ]);
+        $request->id=$employee2->id;
         $request->name="assas";
         $request->address="asa";
         $request->age=2;

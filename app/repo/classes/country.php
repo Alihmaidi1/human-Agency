@@ -41,6 +41,7 @@ class country{
 
 
         ModelsCountry::find($id)->delete();
+        return true;
     }
 
 }
