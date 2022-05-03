@@ -8,6 +8,7 @@ use App\Http\Controllers\employee;
 use App\Http\Controllers\country;
 use App\Http\Controllers\reason;
 use App\Http\Controllers\helptype;
+use App\Http\Controllers\support;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,5 +67,13 @@ Route::post("/admin.login",[login::class,"login"])->name("admin.login");
         Route::get("helptype.edit/{id}",[helptype::class,"edit"])->name("helptype.edit");
         Route::post("helptype.update",[helptype::class,"update"])->name("helptype.update");
         Route::get("helptype.delete/{id}",[helptype::class,"delete"])->name("helptype.delete");
+
+
+        Route::get("support.index",[support::class,"index"])->name("support.index");
+        Route::get("support.create",[support::class,"create"])->name("support.create");
+        Route::post("support.store",[support::class,"store"])->name("support.store");
+        Route::get("support.edit/{id}",[support::class,"edit"])->name("support.edit");
+        Route::post("support.update",[support::class,"update"])->name("support.update");
+        Route::get("support.delete/{id}",[support::class,"delete"])->name("support.delete");
     });
 
