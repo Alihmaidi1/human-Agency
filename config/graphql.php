@@ -83,7 +83,8 @@ return [
                 "getAllcountry"=>\App\Graphql\query\country\getAllCountry::class,
                 "getAllReason"=>\App\Graphql\query\reason\getAllReason::class,
                 "findreason"=>\App\Graphql\query\reason\findreason::class,
-
+                "getallhelptype"=>\App\Graphql\query\helptype\getallhelptype::class,
+                "findhelptype"=>\App\Graphql\query\helptype\findhelptype::class,
 
 
             ],
@@ -101,6 +102,9 @@ return [
                 "addreason"=>\App\Graphql\query\reason\addreason::class,
                 "updatereason"=>\App\Graphql\query\reason\updatereason::class,
                 "deletereason"=>\App\Graphql\query\reason\deletereason::class,
+                "addhelptype"=>\App\Graphql\query\helptype\storehelptype::class,
+                "updatehelptype"=>\App\Graphql\query\helptype\updatehelptype::class,
+                "deletehelptype"=>\App\Graphql\query\helptype\deletehelptype::class,
             ],
             // The types only available in this schema
             'types' => [
@@ -109,7 +113,7 @@ return [
                 \App\Graphql\type\employee::class,
                 \App\Graphql\type\country::class,
                 \App\Graphql\type\reason::class,
-
+                \App\Graphql\type\helptype::class,
 
             ],
 

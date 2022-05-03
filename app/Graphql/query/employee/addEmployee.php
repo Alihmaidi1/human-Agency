@@ -3,10 +3,8 @@
 namespace App\Graphql\query\employee;
 
 use App\repo\classes\employee;
-use Closure;
 use GraphQL;
 use GraphQL\Type\Definition\Type;
-use GraphQL\Type\Definition\ResolveInfo;
 use Illuminate\Http\Request;
 use Rebing\GraphQL\Support\Mutation;
 
@@ -56,7 +54,7 @@ class addEmployee extends Mutation{
     }
 
 
-    public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
+    public function resolve($root, array $args)
     {
         try{
 
