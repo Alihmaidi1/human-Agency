@@ -6,6 +6,7 @@ use App\Http\Controllers\office;
 use App\Http\Controllers\dashboard\dashboard;
 use App\Http\Controllers\employee;
 use App\Http\Controllers\country;
+use App\Http\Controllers\reason;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,5 +48,14 @@ Route::post("/admin.login",[login::class,"login"])->name("admin.login");
         Route::get("country.edit/{id}",[country::class,"edit"])->name("country.edit");
         Route::post("country.update",[country::class,"update"])->name("country.update");
         Route::get("country.delete/{id}",[country::class,"delete"])->name("country.delete");
+
+
+        Route::get("reason.index",[reason::class,"index"])->name("reason.index");
+        Route::get("reason.create",[reason::class,"create"])->name("reason.create");
+        Route::post("reason.store",[reason::class,"store"])->name("reason.store");
+        Route::get("reason.edit/{id}",[reason::class,"edit"])->name("reason.edit");
+        Route::post("reason.update",[reason::class,"update"])->name("reason.update");
+        Route::get("reason.delete/{id}",[reason::class,"delete"])->name("reason.delete");
+
     });
 
