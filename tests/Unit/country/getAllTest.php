@@ -1,10 +1,11 @@
 <?php
 
-namespace Tests\Unit\employees;
+namespace Tests\Unit\country;
 
 use Tests\TestCase;
-use App\repo\classes\employee;
+use App\repo\classes\country;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
 class getAllTest extends TestCase
 {
     /**
@@ -14,9 +15,8 @@ class getAllTest extends TestCase
      */
     public function test_example()
     {
-
-        $employee=new employee();
-        $employee=$employee->getAllemployee()->toArray();
-        $this->assertIsArray($employee);
+        $country=new country();
+        $country=$country->getAllcountry()->toArray();
+        $this->assertIsArray($country);
     }
 }

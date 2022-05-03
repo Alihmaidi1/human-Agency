@@ -9,7 +9,7 @@ class employee{
 
     public function getAllemployee(){
 
-        return ModelsEmployee::all()->toArray();
+        return ModelsEmployee::all();
 
     }
 
@@ -30,14 +30,14 @@ class employee{
 
     public function find($id){
 
-        return ModelsEmployee::find($id);
+        return ModelsEmployee::findOrFail($id);
     }
 
 
 
     public function update($request){
 
-        $employee=ModelsEmployee::find($request->id);
+        $employee=ModelsEmployee::findOrFail($request->id);
         $employee->name=$request->name;
         $employee->address=$request->address;
         $employee->salary=$request->salary;
@@ -51,15 +51,11 @@ class employee{
 
     public function delete($id){
 
-        try{
 
-            ModelsEmployee::find($id)->delete();
-            return true;
+        return  ModelsEmployee::findOrFail($id)->delete();
 
-        }catch(\Exception $ex){
 
-            return false;
-        }
+
         }
 
 

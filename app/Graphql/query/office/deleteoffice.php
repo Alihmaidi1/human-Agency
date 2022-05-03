@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Graphql\query\office;
-use App\Models\office;
+use App\repo\classes\office;
 use Rebing\GraphQL\Support\Mutation;
 use GraphQL;
 use GraphQL\Type\Definition\Type;
@@ -33,9 +33,19 @@ class deleteoffice extends Mutation{
     public function resolve($root, array $args)
     {
 
-        $office=office::find($args['id']);
-        $office->delete();
-        return ["message"=>"true"];
+        try{
+
+
+        $office=new office();
+        $office->delete($args['id']);
+        return ["message"=>"Success","status"=>200];
+
+
+        }catch(\Exception $ex){
+
+            return ["message"=>"we Have Error","status"=>500];
+
+        }
     }
 
 

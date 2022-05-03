@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\login;
 use App\Http\Controllers\office;
 use App\Http\Controllers\dashboard\dashboard;
 use App\Http\Controllers\employee;
+use App\Http\Controllers\country;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,5 +40,12 @@ Route::post("/admin.login",[login::class,"login"])->name("admin.login");
         Route::post("employee.update",[employee::class,"update"])->name("employee.update");
         Route::get("employee.delete/{id}",[employee::class,"delete"])->name("employee.delete");
 
+
+        Route::get("country.index",[country::class,"index"])->name("country.index");
+        Route::get("country.create",[country::class,"create"])->name("country.create");
+        Route::post("country.store",[country::class,"store"])->name("country.store");
+        Route::get("country.edit/{id}",[country::class,"edit"])->name("country.edit");
+        Route::post("country.update",[country::class,"update"])->name("country.update");
+        Route::get("country.delete/{id}",[country::class,"delete"])->name("country.delete");
     });
 

@@ -2,16 +2,21 @@
 
 namespace App\Graphql\type;
 
+
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Type as GraphQLType;
-class office extends GraphQLType{
+
+class country extends GraphQLType{
 
     protected $attributes = [
-        'name'          => 'office',
-        'description'   => 'office center',
+        'name'          => 'country',
+        'description'   => 'Country',
         // Note: only necessary if you use `SelectFields`
-        'model'         => \App\Models\office::class,
+        'model'         => \App\Models\country::class,
     ];
+
+
+
 
     public function fields(): array
     {
@@ -24,9 +29,6 @@ class office extends GraphQLType{
             'name' => [
                 'type' => Type::string(),
             ],
-            'address' => [
-                'type' => Type::string(),
-            ],
             'message' => [
                 'type' => Type::string(),
             ],
@@ -35,6 +37,7 @@ class office extends GraphQLType{
             ]
         ];
     }
+
 
 
 

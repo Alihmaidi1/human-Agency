@@ -1,13 +1,10 @@
 <?php
 namespace App\Graphql\query\office;
 
-
-use App\Models\office as ModelsOffice;
+use App\repo\classes\office;
 use Rebing\GraphQL\Support\Facades\GraphQL;
-use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Query;
-use Closure;
 
 class getAllOffice extends Query {
 
@@ -29,10 +26,25 @@ class getAllOffice extends Query {
     }
 
 
-    public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
+    public function resolve($root, array $args)
     {
 
-            return ModelsOffice::all();
+        try{
+
+            $office=new office();
+            $offices=$office->getAlloffices();
+            foreach($offices as $office){
+                $office['message']="Success";
+                $office['status']=200;
+            }
+            return $offices;
+
+        }catch(\Exception $ex){
+
+            return ["message"=>"we Have Error","status"=>500];
+
+        }
+
 
     }
 
