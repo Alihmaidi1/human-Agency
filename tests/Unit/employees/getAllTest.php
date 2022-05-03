@@ -16,7 +16,7 @@ class getAllTest extends TestCase
     {
 
         $employee=new employee();
-        $employee=$employee->getAllemployee();
+        $employee=$employee->getAllemployee()->toArray();
         $this->assertIsArray($employee);
     }
 }

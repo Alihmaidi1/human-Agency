@@ -52,7 +52,7 @@ class employee{
     public function delete($id){
 
 
-            ModelsEmployee::findOrFail($id)->delete();
+        return  ModelsEmployee::findOrFail($id)->delete();
 
 
 
