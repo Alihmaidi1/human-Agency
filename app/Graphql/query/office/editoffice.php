@@ -2,10 +2,11 @@
 
 namespace App\Graphql\query\office;
 
-use App\Models\office;
+use App\repo\classes\office;
 use Rebing\GraphQL\Support\Mutation;
 use GraphQL;
 use GraphQL\Type\Definition\Type;
+use Illuminate\Http\Request;
 
 class editoffice extends Mutation{
 
@@ -43,11 +44,26 @@ class editoffice extends Mutation{
     public function resolve($root, array $args)
     {
 
-        $office=office::find($args['id']);
-        $office->name=$args['name'];
-        $office->address=$args['address'];
-        $office->save();
-        return $office;
+        try{
+
+
+            $request=new Request();
+            $request->id=$args['id'];
+            $request->name=$args['name'];
+            $request->address=$args['address'];
+            $office=new office();
+            $office=$office->update($request);
+            $office->message="Success";
+            $office->status=200;
+            return $office;
+
+        }catch(\Exception $ex){
+
+            return ["message"=>"We Have Error","status"=>500];
+
+        }
+
+
     }
 
 

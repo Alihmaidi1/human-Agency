@@ -36,8 +36,18 @@ class deletecountry extends Mutation{
     {
 
         $country=new country();
+
+        try{
+
+
         $country=$country->delete($args['id']);
-        return ["message"=>"true"];
+        return ["message"=>"true","status"=>200];
+
+        }catch(\Exception){
+
+            return ["message"=>"we have Error","status"=>500];
+
+        }
     }
 
 

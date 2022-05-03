@@ -31,13 +31,20 @@ class addcountry extends Mutation{
         ];
     }
 
-
     public function resolve($root, array $args)
     {
+        try{
+            $country=new country();
+            $country=$country->store($args['name']);
+            $country->status=200;
+            $country->message="Success";
+            return $country;
 
-        $country=new country();
-        $country=$country->store($args['name']);
-        return $country;
+        }catch(\Exception $ex){
+
+            return ["message"=>"we can't add country","status"=>500];
+
+        }
     }
 
 

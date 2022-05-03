@@ -36,8 +36,19 @@ class findcountry extends Query{
     {
 
         $country=new country();
+        try{
+
+
         $country=$country->find($args['id']);
+        $country->status=200;
+        $country->message="success";
         return $country;
+
+        }catch(\Exception $ex){
+
+            return ["message"=>"erorr the country not found","status"=>500];
+
+        }
 
     }
 

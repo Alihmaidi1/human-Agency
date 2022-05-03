@@ -1,11 +1,9 @@
 <?php
 namespace App\Graphql\query\office;
-
-use App\Models\office;
-use Closure;
+use App\repo\classes\office;
 use GraphQL;
 use GraphQL\Type\Definition\Type;
-use GraphQL\Type\Definition\ResolveInfo;
+use Illuminate\Http\Request;
 use Rebing\GraphQL\Support\Mutation;
 
 class addoffice extends Mutation{
@@ -33,14 +31,24 @@ class addoffice extends Mutation{
         ];
     }
 
-    public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
+    public function resolve($root, array $args)
     {
 
+        try{
+        $request=new Request();
+        $request->name=$args['name'];
+        $request->address=$args['address'];
         $office=new office();
-        $office->name=$args['name'];
-        $office->address=$args['address'];
-        $office->save();
+        $office=$office->store($request);
+        $office->message="Success";
+        $office->status=200;
         return $office;
+
+        }catch(\Exception $ex){
+            return ["status"=>500,"message"=>"We Have Error"];
+        }
+
+
     }
 
 

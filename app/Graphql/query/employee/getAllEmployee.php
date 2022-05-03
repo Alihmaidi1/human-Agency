@@ -5,8 +5,7 @@ namespace App\Graphql\query\employee;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Query;
-use App\Models\employee;
-
+use App\repo\classes\employee;
 
 class getAllEmployee extends Query{
 
@@ -28,25 +27,33 @@ class getAllEmployee extends Query{
 
     public function resolve($root, array $args)
     {
-        $employees=employee::all();
 
+        try{
+
+
+        $employees=new employee();
+        $employees=$employees->getAllemployee();
         foreach($employees as $employee){
-
             $employee->office=$employee->office->name;
+            $employee->message="Success";
+            $employee->status=200;
+
         if($employee->manager_id!=null){
 
             $employee->manager=$employee->manager->name;
-
         }else{
 
             $employee->manager="Not Have";
-
         }
-
 
         }
 
             return $employees;
+
+        }catch(\Exception $ex){
+
+            return ["message"=>"we Have Error","status"=>500];
+        }
 
     }
 

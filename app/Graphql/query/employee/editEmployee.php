@@ -2,11 +2,12 @@
 
 namespace App\Graphql\query\employee;
 
-use App\Models\employee;
+use App\repo\classes\employee;
 use Closure;
 use GraphQL;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\ResolveInfo;
+use Illuminate\Http\Request;
 use Rebing\GraphQL\Support\Mutation;
 
 use function PHPSTORM_META\type;
@@ -66,25 +67,40 @@ class editemployee extends Mutation{
     public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
     {
 
-        $employee=employee::find($args['id']);
-        $employee->name=$args['name'];
-        $employee->address=$args['address'];
-        $employee->salary=$args['salary'];
-        $employee->age=$args['age'];
-        $employee->office_id=$args['office_id'];
-        $employee->manager_id=$args['manager_id'];
-        $employee->save();
+        try{
+
+
+            $request=new Request();
+        $request->id=$args['id'];
+        $request->name=$args['name'];
+        $request->address=$args['address'];
+        $request->salary=$args['salary'];
+        $request->age=$args['age'];
+        $request->office_id=$args['office_id'];
+        $request->manager_id=$args['manager_id'];
+        $employee=new employee();
+        $employee=$employee->update($request);
         $employee->office=$employee->office->name;
         if($employee->manager_id!=null){
-
             $employee->manager=$employee->manager->name;
-
         }else{
-
             $employee->manager="Not Have";
+        }
+        $employee->message="Success";
+        $employee->status=200;
+        return $employee;
+        }catch(\Exception $ex){
+
+            return ["message"=>"We Have Error","status"=>500];
+
+
+
+
 
         }
-        return $employee;
+
+
+
     }
 
 

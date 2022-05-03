@@ -44,11 +44,13 @@ class editcountry extends Mutation{
         $country=new country();
         try{
             $country=$country->update($args['id'],$args["name"]);
-        return $country;
+            $country->status=200;
+            $country->message="we can't edit country";
+            return $country;
 
         }catch(\Exception){
 
-        return ["message"=>"we have error"];
+        return ["message"=>"we have error","status"=>500];
 
         }
     }

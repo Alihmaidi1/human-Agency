@@ -22,14 +22,14 @@ class country{
 
     public function find($id){
 
-        return ModelsCountry::find($id);
+        return ModelsCountry::findOrFail($id);
     }
 
 
 
     public function update($id,$name){
 
-        $country=ModelsCountry::find($id);
+        $country=ModelsCountry::findOrFail($id);
         $country->name=$name;
         $country->save();
         return $country;
@@ -40,7 +40,7 @@ class country{
     public function delete($id){
 
 
-        ModelsCountry::find($id)->delete();
+        ModelsCountry::findOrFail($id)->delete();
         return true;
     }
 

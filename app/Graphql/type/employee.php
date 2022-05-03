@@ -50,6 +50,9 @@ class employee extends GraphQLType{
             ],
             'message' => [
                 'type' => Type::string(),
+            ],
+            'status' => [
+                'type' => Type::int(),
             ]
         ];
     }

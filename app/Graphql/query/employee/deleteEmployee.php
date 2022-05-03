@@ -2,11 +2,9 @@
 
 namespace App\Graphql\query\employee;
 
-use App\Models\employee;
-use Closure;
+use App\repo\classes\employee;
 use GraphQL;
 use GraphQL\Type\Definition\Type;
-use GraphQL\Type\Definition\ResolveInfo;
 use Rebing\GraphQL\Support\Mutation;
 
 class deleteEmployee extends Mutation{
@@ -35,24 +33,19 @@ class deleteEmployee extends Mutation{
     }
 
 
-    public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
+    public function resolve($root, array $args)
     {
 
-        $employee1=employee::find($args['id']);
-        $employee=$employee1;
-        $employee->office=$employee->office->name;
-        if($employee->manager_id!=null){
+        try{
+            $employee=new employee();
+            $employee->delete($args['id']);
+            return ["message"=>"Success","status"=>200];
 
-            $employee->manager=$employee->manager->name;
-
-        }else{
-
-        $employee->office="Not Have";
-
+        }catch(\Exception){
+            return ["message"=>"we Have Error","status"=>500];
         }
-        $employee1->delete();
 
-        return $employee;
+
     }
 
 
