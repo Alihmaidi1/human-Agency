@@ -81,6 +81,9 @@ return [
                 "getAllEmpoyee"=>\App\Graphql\query\employee\getAllEmployee::class,
                 "findcountry"=>\App\Graphql\query\country\findcountry::class,
                 "getAllcountry"=>\App\Graphql\query\country\getAllCountry::class,
+                "getAllReason"=>\App\Graphql\query\reason\getAllReason::class,
+                "findreason"=>\App\Graphql\query\reason\findreason::class,
+
 
 
             ],
@@ -95,6 +98,9 @@ return [
                 "addcountry"=>\App\Graphql\query\country\addcountry::class,
                 "editcountry"=>\App\Graphql\query\country\editcountry::class,
                 "deletecountry"=>\App\Graphql\query\country\deletecountry::class,
+                "addreason"=>\App\Graphql\query\reason\addreason::class,
+                "updatereason"=>\App\Graphql\query\reason\updatereason::class,
+                "deletereason"=>\App\Graphql\query\reason\deletereason::class,
             ],
             // The types only available in this schema
             'types' => [
@@ -102,6 +108,7 @@ return [
                 \App\Graphql\type\office::class,
                 \App\Graphql\type\employee::class,
                 \App\Graphql\type\country::class,
+                \App\Graphql\type\reason::class,
 
 
             ],
