@@ -79,6 +79,10 @@ return [
                 "offices"=>\App\Graphql\query\office\getAllOffice::class,
                 "findemployee"=>\App\Graphql\query\employee\findemployee::class,
                 "getAllEmpoyee"=>\App\Graphql\query\employee\getAllEmployee::class,
+                "findcountry"=>\App\Graphql\query\country\findcountry::class,
+                "getAllcountry"=>\App\Graphql\query\country\getAllCountry::class,
+
+
             ],
             'mutation' => [
 
@@ -88,13 +92,17 @@ return [
                 "addemployee"=>\App\Graphql\query\employee\addEmployee::class,
                 "editemployee"=>\App\Graphql\query\employee\editemployee::class,
                 "deleteemployee"=>\App\Graphql\query\employee\deleteEmployee::class,
-
+                "addcountry"=>\App\Graphql\query\country\addcountry::class,
+                "editcountry"=>\App\Graphql\query\country\editcountry::class,
+                "deletecountry"=>\App\Graphql\query\country\deletecountry::class,
             ],
             // The types only available in this schema
             'types' => [
 
                 \App\Graphql\type\office::class,
                 \App\Graphql\type\employee::class,
+                \App\Graphql\type\country::class,
+
 
             ],
 
