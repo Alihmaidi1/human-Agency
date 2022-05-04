@@ -72,6 +72,11 @@
                   <li><a href="{{ route("center.index") }}">Show Center</a></li>
                 </ul>
               </li>
+              <li><a><i class="fa fa-clone"></i>Rooms <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                  <li><a href="{{ route("room.index") }}">Show Rooms</a></li>
+                </ul>
+              </li>
           </ul>
         </div>
         <div class="menu_section">

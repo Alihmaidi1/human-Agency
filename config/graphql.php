@@ -122,7 +122,6 @@ return [
             ],
             // The types only available in this schema
             'types' => [
-
                 \App\Graphql\type\office::class,
                 \App\Graphql\type\employee::class,
                 \App\Graphql\type\country::class,

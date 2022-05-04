@@ -11,7 +11,7 @@ use App\Http\Controllers\helptype;
 use App\Http\Controllers\support;
 use App\Http\Controllers\service;
 use App\Http\Controllers\center;
-
+use App\Http\Controllers\room;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -96,5 +96,14 @@ Route::post("/admin.login",[login::class,"login"])->name("admin.login");
         Route::get("center.edit/{id}",[center::class,"edit"])->name("center.edit");
         Route::post("center.update",[center::class,"update"])->name("center.update");
         Route::get("center.delete/{id}",[center::class,"delete"])->name("center.delete");
+
+
+        Route::get("room.index",[room::class,"index"])->name("room.index");
+        Route::get("room.create",[room::class,"create"])->name("room.create");
+        Route::post("room.store",[room::class,"store"])->name("room.store");
+        Route::get("room.edit/{id}",[room::class,"edit"])->name("room.edit");
+        Route::post("room.update",[room::class,"update"])->name("room.update");
+        Route::get("room.delete/{id}",[room::class,"delete"])->name("room.delete");
+
     });
 
