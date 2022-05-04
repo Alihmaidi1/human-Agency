@@ -87,6 +87,8 @@ return [
                 "findhelptype"=>\App\Graphql\query\helptype\findhelptype::class,
                 "getsupport"=>\App\Graphql\query\support\getallsupport::class,
                 "findsupport"=>\App\Graphql\query\support\findsupport::class,
+                "getallservice"=>\App\Graphql\query\service\getAllservice::class,
+                "findservice"=>\App\Graphql\query\service\findservice::class,
             ],
             'mutation' => [
 
@@ -108,6 +110,11 @@ return [
                 "addsupport"=>\App\Graphql\query\support\addsupport::class,
                 "updatesupport"=>\App\Graphql\query\support\updatesupport::class,
                 "deletesupport"=>\App\Graphql\query\support\deletesupport::class,
+                "addservice"=>\App\Graphql\query\service\storeservice::class,
+                "updateservice"=>\App\Graphql\query\service\updateservice::class,
+                "deleteservice"=>\App\Graphql\query\service\deleteservice::class,
+
+
 
             ],
             // The types only available in this schema
@@ -119,6 +126,7 @@ return [
                 \App\Graphql\type\reason::class,
                 \App\Graphql\type\helptype::class,
                 \App\Graphql\type\support::class,
+                \App\Graphql\type\service::class,
 
 
             ],
