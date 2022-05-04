@@ -9,6 +9,8 @@ use App\Http\Controllers\country;
 use App\Http\Controllers\reason;
 use App\Http\Controllers\helptype;
 use App\Http\Controllers\support;
+use App\Http\Controllers\service;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,5 +77,15 @@ Route::post("/admin.login",[login::class,"login"])->name("admin.login");
         Route::get("support.edit/{id}",[support::class,"edit"])->name("support.edit");
         Route::post("support.update",[support::class,"update"])->name("support.update");
         Route::get("support.delete/{id}",[support::class,"delete"])->name("support.delete");
+
+
+
+        Route::get("service.index",[service::class,"index"])->name("service.index");
+        Route::get("service.create",[service::class,"create"])->name("service.create");
+        Route::post("service.store",[service::class,"store"])->name("service.store");
+        Route::get("service.edit/{id}",[service::class,"edit"])->name("service.edit");
+        Route::post("service.update",[service::class,"update"])->name("service.update");
+        Route::get("service.delete/{id}",[service::class,"delete"])->name("service.delete");
+
     });
 
