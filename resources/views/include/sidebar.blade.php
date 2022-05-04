@@ -66,6 +66,12 @@
                   <li><a href="{{ route("service.index") }}">Show Service</a></li>
                 </ul>
               </li>
+
+              <li><a><i class="fa fa-clone"></i>Center <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                  <li><a href="{{ route("center.index") }}">Show Center</a></li>
+                </ul>
+              </li>
           </ul>
         </div>
         <div class="menu_section">

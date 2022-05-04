@@ -10,6 +10,7 @@ use App\Http\Controllers\reason;
 use App\Http\Controllers\helptype;
 use App\Http\Controllers\support;
 use App\Http\Controllers\service;
+use App\Http\Controllers\center;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,5 +88,13 @@ Route::post("/admin.login",[login::class,"login"])->name("admin.login");
         Route::post("service.update",[service::class,"update"])->name("service.update");
         Route::get("service.delete/{id}",[service::class,"delete"])->name("service.delete");
 
+
+
+        Route::get("center.index",[center::class,"index"])->name("center.index");
+        Route::get("center.create",[center::class,"create"])->name("center.create");
+        Route::post("center.store",[center::class,"store"])->name("center.store");
+        Route::get("center.edit/{id}",[center::class,"edit"])->name("center.edit");
+        Route::post("center.update",[center::class,"update"])->name("center.update");
+        Route::get("center.delete/{id}",[center::class,"delete"])->name("center.delete");
     });
 
